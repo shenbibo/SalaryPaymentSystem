@@ -7,4 +7,6 @@ package com.study.sky.salarypaymentsystem.model.affiliation;
  */
 
 public class NoAffiliation implements Affiliation {
+    NoAffiliation(){}
+
 }

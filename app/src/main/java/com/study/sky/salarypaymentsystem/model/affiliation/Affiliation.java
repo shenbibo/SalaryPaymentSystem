@@ -7,4 +7,5 @@ package com.study.sky.salarypaymentsystem.model.affiliation;
  */
 
 public interface Affiliation {
+    NoAffiliation NO_AFFILIATION = new NoAffiliation();
 }

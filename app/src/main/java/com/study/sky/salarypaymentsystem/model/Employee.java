@@ -24,6 +24,7 @@ public class Employee {
         this.id = id;
         this.name = name;
         this.address = address;
+        affiliation = Affiliation.NO_AFFILIATION;
     }
 
     public long getId() {

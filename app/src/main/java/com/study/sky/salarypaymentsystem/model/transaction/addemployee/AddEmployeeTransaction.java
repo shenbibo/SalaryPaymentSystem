@@ -2,8 +2,10 @@ package com.study.sky.salarypaymentsystem.model.transaction.addemployee;
 
 import com.study.sky.salarypaymentsystem.model.DbManager;
 import com.study.sky.salarypaymentsystem.model.Employee;
+import com.study.sky.salarypaymentsystem.model.affiliation.Affiliation;
 import com.study.sky.salarypaymentsystem.model.classification.PaymentClassification;
 import com.study.sky.salarypaymentsystem.model.method.HoldMethod;
+import com.study.sky.salarypaymentsystem.model.method.PaymentMethod;
 import com.study.sky.salarypaymentsystem.model.schedule.PaymentSchedule;
 import com.study.sky.salarypaymentsystem.model.transaction.Transaction;
 
@@ -29,11 +31,18 @@ public abstract class AddEmployeeTransaction implements Transaction {
         Employee e = new Employee(id, name, address);
         e.setPaymentSchedule(getSchedule());
         e.setPaymentClassification(getClassification());
-        e.setPaymentMethod(new HoldMethod());
+        e.setPaymentMethod(getMethod());
 
         DbManager dbManager = DbManager.getInstance();
         dbManager.addEmployee(id, e);
 
+    }
+
+//    protected Affiliation getAffiliation(){
+//        return Affiliation.NO_AFFILIATION;
+//    }
+    protected PaymentMethod getMethod(){
+        return new HoldMethod();
     }
 
     protected abstract PaymentSchedule getSchedule();
