@@ -24,4 +24,8 @@ public class DbManager {
     public void addEmployee(long id, Employee e) {
         employees.put(id, e);
     }
+
+    public void deleteEmployeeById(long mId) {
+        employees.remove(mId);
+    }
 }
