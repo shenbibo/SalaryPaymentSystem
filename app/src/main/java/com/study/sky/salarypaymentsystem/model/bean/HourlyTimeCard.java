@@ -7,4 +7,19 @@ package com.study.sky.salarypaymentsystem.model.bean;
  */
 
 public class HourlyTimeCard {
+    private SimpleDate mDate;
+    private double mHours;
+
+    public HourlyTimeCard(SimpleDate date, double hours){
+        mDate = date;
+        mHours = hours;
+    }
+
+    public SimpleDate getDate() {
+        return mDate;
+    }
+
+    public double getHour() {
+        return mHours;
+    }
 }
