@@ -9,11 +9,13 @@ import com.study.sky.salarypaymentsystem.model.transaction.beantransaction.AddTi
 
 import org.junit.Test;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import utils.EmployeeUtils;
 
 import static org.junit.Assert.*;
+
 /**
  * [一句话描述类的作用]
  * [详述类的功能。]
@@ -23,7 +25,7 @@ import static org.junit.Assert.*;
 public class AddTimeCardTest {
 
     @Test
-    public void addOneTimeCardTest(){
+    public void addOneTimeCardTest() {
         Employee e = EmployeeUtils.createDefaultHourlyEmployee();
 
         SimpleDate date = new SimpleDate(new Date(2017, 2, 10));
