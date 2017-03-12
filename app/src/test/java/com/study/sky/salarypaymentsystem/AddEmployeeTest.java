@@ -100,8 +100,11 @@ public class AddEmployeeTest {
         String name = "gavin";
         String address = "gavin.address";
         double basicMonthlyPay = 123.0;
+        // 每件产品的销售提成额
+        double commissionRate = 5.0;
 
-        AddCommissionedEmployee addCommissionedEmployee = new AddCommissionedEmployee(id, name, address, basicMonthlyPay);
+        AddCommissionedEmployee addCommissionedEmployee =
+                new AddCommissionedEmployee(id, name, address, basicMonthlyPay, commissionRate);
         addCommissionedEmployee.execute();
 
         Employee e = dbManager.getEmployeeById(id);
@@ -109,6 +112,7 @@ public class AddEmployeeTest {
 
         CommissionedClassification classification = (CommissionedClassification) e.getPaymentClassification();
         assertEquals(basicMonthlyPay, classification.getBasicMonthlyPay(), 0.01);
+        assertEquals(commissionRate, classification.getCommissionRate(), 0.01);
 
         assertTrue(e.getPaymentMethod() instanceof HoldMethod);
         assertTrue(e.getPaymentSchedule() instanceof BiweeklySchedule);

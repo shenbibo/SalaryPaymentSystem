@@ -4,15 +4,13 @@ import com.study.sky.salarypaymentsystem.model.Employee;
 import com.study.sky.salarypaymentsystem.model.bean.HourlyTimeCard;
 import com.study.sky.salarypaymentsystem.model.bean.SimpleDate;
 import com.study.sky.salarypaymentsystem.model.classification.HourlyClassification;
-import com.study.sky.salarypaymentsystem.model.classification.PaymentClassification;
 import com.study.sky.salarypaymentsystem.model.transaction.beantransaction.AddTimeCardTransaction;
 
 import org.junit.Test;
 
-import java.util.Calendar;
 import java.util.Date;
 
-import utils.EmployeeUtils;
+import utils.EmployeeFactory;
 
 import static org.junit.Assert.*;
 
@@ -26,7 +24,7 @@ public class AddTimeCardTest {
 
     @Test
     public void addOneTimeCardTest() {
-        Employee e = EmployeeUtils.createDefaultHourlyEmployee();
+        Employee e = EmployeeFactory.createDefaultHourlyEmployee();
 
         SimpleDate date = new SimpleDate(new Date(2017, 2, 10));
         AddTimeCardTransaction timeCardTransaction = new AddTimeCardTransaction(date, 7.0, e.getId());

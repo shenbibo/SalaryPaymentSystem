@@ -11,11 +11,15 @@ import com.study.sky.salarypaymentsystem.model.schedule.PaymentSchedule;
  * Created by sky on 2017/3/8.
  */
 
-public class AddCommissionedEmployee extends AddEmployeeTransaction{
+public class AddCommissionedEmployee extends AddEmployeeTransaction {
     private double basicMonthlyPay;
-    public AddCommissionedEmployee(long id, String name, String address, double basicMonthlyPay) {
+    private double commissionRate;
+
+    public AddCommissionedEmployee(long id, String name, String address, double basicMonthlyPay,
+                                   double commissionRate) {
         super(id, name, address);
         this.basicMonthlyPay = basicMonthlyPay;
+        this.commissionRate = commissionRate;
     }
 
     @Override
@@ -25,6 +29,6 @@ public class AddCommissionedEmployee extends AddEmployeeTransaction{
 
     @Override
     protected PaymentClassification getClassification() {
-        return new CommissionedClassification(basicMonthlyPay);
+        return new CommissionedClassification(basicMonthlyPay, commissionRate);
     }
 }

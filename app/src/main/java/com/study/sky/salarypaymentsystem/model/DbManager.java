@@ -10,6 +10,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class DbManager {
     private static DbManager instance = new DbManager();
+    private ConcurrentHashMap<Long, Employee> employees = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, Long> members = new ConcurrentHashMap<>();
 
     public static DbManager getInstance() {
         return instance;
@@ -19,7 +21,7 @@ public class DbManager {
         return employees.get(id);
     }
 
-    private ConcurrentHashMap<Long, Employee> employees = new ConcurrentHashMap<>();
+
 
     public void addEmployee(long id, Employee e) {
         employees.put(id, e);
@@ -27,5 +29,13 @@ public class DbManager {
 
     public void deleteEmployeeById(long mId) {
         employees.remove(mId);
+    }
+
+    public Employee getEmployeeByMemberId(long memberId) {
+        return employees.get(members.get(memberId));
+    }
+
+    public void addUnionMember(long memberId, Employee e){
+        members.put(memberId, e.getId());
     }
 }

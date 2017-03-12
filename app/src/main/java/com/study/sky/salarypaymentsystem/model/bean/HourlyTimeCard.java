@@ -10,7 +10,7 @@ public class HourlyTimeCard {
     private SimpleDate mDate;
     private double mHours;
 
-    public HourlyTimeCard(SimpleDate date, double hours){
+    public HourlyTimeCard(SimpleDate date, double hours) {
         mDate = date;
         mHours = hours;
     }
@@ -21,5 +21,25 @@ public class HourlyTimeCard {
 
     public double getHour() {
         return mHours;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof SalesReceipt) {
+            if (obj == this) {
+                return true;
+            }
+
+            HourlyTimeCard temp = (HourlyTimeCard) obj;
+            if (temp.mHours == mHours && temp.mDate.equals(mDate)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return mDate.hashCode() + Double.valueOf(mHours).hashCode();
     }
 }
